@@ -1,2 +1,7 @@
 www:
-    type: python
+    type: python-worker
+    processes:
+      hello: twistd -n web --port=$PORT_WWW --class=hello.resource
+    ports:
+      www: http
+
